@@ -1,0 +1,9 @@
+main: me.iamajiu.OddCurrency.Main
+name: OddCurrency
+version: 1.0
+author: iAmAJiu
+description: OddCurrency custom mod
+commands:
+  oc:
+    usage: /oc 
+    permission: OddCurrency.player

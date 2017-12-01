@@ -36,6 +36,19 @@ public class OddEvents implements Listener {
 		return null; 
 	}
 	
+	public String parseCommand(Player player, ShopItem sitem) {
+		String player_name = player.getName(); 
+		String parse = sitem.getCommand();
+		String replace = "player.sender"; 
+		if (parse.contains(replace)) {
+			String temp = parse.replaceAll(replace, player_name); 
+			return temp; 
+		}
+		else {
+			return parse; 
+		}
+	}
+	
 	private void checkFunds(Player player, ShopItem sitem) {
 		if (!player.getInventory().contains(Material.SLIME_BALL)) {
 			player.sendMessage(ChatColor.RED + "You don't even have anything, kid.");
@@ -61,7 +74,7 @@ public class OddEvents implements Listener {
 					}
 					player_items[i].setAmount(total);
 					player.sendMessage(ChatColor.BLUE + "You purchased " + sitem.getName() + "!");
-					Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), sitem.getCommand());
+					Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), parseCommand(player, sitem));
 					return;
 				}
 			}

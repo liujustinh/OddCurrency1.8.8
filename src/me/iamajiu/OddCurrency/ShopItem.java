@@ -60,6 +60,7 @@ public class ShopItem {
 		return this.cmd; 
 	}
 	
+	
 	public String getName() {
 		return this.name; 
 	}
